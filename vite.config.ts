@@ -26,14 +26,7 @@ export default defineConfig(() => {
       },
     },
     build: {
-      rollupOptions: {
-        external: ['phaser'],
-        output: {
-          globals: {
-            phaser: 'Phaser'
-          }
-        }
-      }
+      outDir: 'dist',
     },
     server: {
       // HMR is disabled in AI Studio via DISABLE_HMR env var.
