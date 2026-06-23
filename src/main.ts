@@ -95,7 +95,7 @@ class MenuScene extends Phaser.Scene {
         this.focusIndex = 0;
         
         this.add.image(120, 60, 'ludo', 'banner_ribbon').setScale(0.5);
-        this.add.text(120, 50, 'LUDO PRO', { fontSize: '20px', color: '#FFD700', fontStyle: 'bold' }).setOrigin(0.5);
+        this.add.text(120, 58, 'LUDO PRO', { fontSize: '20px', color: '#FFD700', fontStyle: 'bold', stroke: '#000', strokeThickness: 3 }).setOrigin(0.5).setDepth(10);
 
         this.menuItems = [
             { id: 'play', y: 140, text: 'PLAY GAME', icon: 'btn_play' },
@@ -650,14 +650,21 @@ class GameScene extends Phaser.Scene {
     }
 }
 
-const config = {
+const config: Phaser.Types.Core.GameConfig = {
     type: Phaser.AUTO,
     parent: 'game-container',
     width: 240,
     height: 320,
     backgroundColor: '#1E2235',
+    scale: {
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
+    },
     scene: [BootScene, MenuScene, HelpScene, GameScene],
-    pixelArt: true
+    render: {
+        pixelArt: true,
+        antialias: false
+    }
 };
 
 new Phaser.Game(config);

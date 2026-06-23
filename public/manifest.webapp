@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "launch_path": "/index.html",
   "origin": "app://kaios-ludo.antigravity.dev",
-  "fullscreen": "true",
+  "fullscreen": true,
   "icons": {
     "56": "/assets/ludo_icon.jpg",
     "112": "/assets/ludo_icon.jpg"
