@@ -5,8 +5,8 @@
   "launch_path": "/index.html",
   "origin": "app://kaios-ludo.antigravity.dev",
   "icons": {
-    "56": "/assets/icon-56.png",
-    "112": "/assets/icon-112.png"
+    "56": "/assets/ludo_icon.jpg",
+    "112": "/assets/ludo_icon.jpg"
   },
   "developer": {
     "name": "AI Studio",
