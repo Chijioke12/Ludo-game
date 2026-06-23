@@ -318,48 +318,19 @@ async function main() {
         ['game_win', makeGameWin],
     ];
 
-    const gapSec = 0.35;
-    const gapN = Math.floor(SR * gapSec);
-    let totalN = 0;
-    const sprites: Record<string, { start: number, end: number }> = {};
-    
-    const clips = generators.map(([name, gen]) => {
+    for (const [name, gen] of generators) {
         const sig = gen();
-        const startSec = totalN / SR;
-        const durSec = sig.length / SR;
-        sprites[name] = {
-            start: startSec,
-            end: startSec + durSec
-        };
-        
-        totalN += sig.length + gapN;
-        return sig;
-    });
-
-    const fullSig = new Float64Array(totalN);
-    let cursor = 0;
-    clips.forEach(sig => {
-        fullSig.set(sig, cursor);
-        cursor += sig.length + gapN;
-    });
-
-    const wav = new WaveFile();
-    // Convert float samples to 16-bit PCM
-    const pcm = new Int16Array(fullSig.length);
-    for (let i = 0; i < fullSig.length; i++) {
-        pcm[i] = Math.max(-32768, Math.min(32767, Math.floor(fullSig[i] * 32767)));
+        const wav = new WaveFile();
+        const pcm = new Int16Array(sig.length);
+        for (let i = 0; i < sig.length; i++) {
+            pcm[i] = Math.max(-32768, Math.min(32767, Math.floor(sig[i] * 32767)));
+        }
+        wav.fromScratch(1, SR, '16', pcm);
+        fs.writeFileSync(path.join(outDir, `${name}.wav`), wav.toBuffer());
+        console.log(`Generated ${name}.wav`);
     }
-    wav.fromScratch(1, SR, '16', pcm);
-    
-    fs.writeFileSync(path.join(outDir, 'ludo_soundsprite.wav'), wav.toBuffer());
-    
-    const atlas = {
-        resources: ['/assets/sounds/ludo_soundsprite.wav'],
-        spritemap: sprites
-    };
-    fs.writeFileSync(path.join(outDir, 'ludo_sound_atlas.json'), JSON.stringify(atlas, null, 2));
-    
-    console.log('Generated sounds and atlas at public/assets/sounds/');
+
+    console.log('Generated individual sounds at public/assets/sounds/');
 }
 
 main().catch(console.error);

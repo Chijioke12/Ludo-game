@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "launch_path": "/index.html",
   "origin": "app://kaios-ludo.antigravity.dev",
+  "fullscreen": "true",
   "icons": {
     "56": "/assets/ludo_icon.jpg",
     "112": "/assets/ludo_icon.jpg"
@@ -12,8 +13,12 @@
     "name": "AI Studio",
     "url": "https://ai.studio"
   },
-  "type": "privileged",
-  "permissions": {},
+  "type": "web",
+  "permissions": {
+    "audio-channel-content": {
+      "description": "To play game sounds"
+    }
+  },
   "locales": {
     "en-US": {
       "name": "KaiOS Ludo",

@@ -47,7 +47,14 @@ class BootScene extends Phaser.Scene {
 
         this.load.atlas('ludo', '/ludo_spritesheet.png', '/ludo_atlas.json');
         this.load.atlas('focus', '/focus_assets.png', '/focus_atlas.json');
-        this.load.audioSprite('sfx', '/assets/sounds/ludo_sound_atlas.json');
+        
+        const sounds = [
+            'dice_roll', 'token_move', 'token_capture', 'token_home',
+            'button_click', 'game_start', 'invalid_move', 'six_bonus', 'game_win'
+        ];
+        sounds.forEach(s => {
+            this.load.audio(s, `/assets/sounds/${s}.wav`);
+        });
 
         this.load.on('loaderror', (file: any) => {
             console.error('Error loading file:', file.key, file.src);
