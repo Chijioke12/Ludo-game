@@ -125,7 +125,7 @@ class MenuScene extends Phaser.Scene {
         this.focusIndicator.setAlpha(1);
         this.focusIndicator.setPosition(70, item.y);
         
-        this.sound.play('sfx', { sprite: 'button_click', volume: 0.5 });
+        this.sound.play('button_click', { volume: 0.5 });
 
         this.menuSprites.forEach((sprite, idx) => {
             if (idx === this.focusIndex) {
@@ -143,7 +143,7 @@ class MenuScene extends Phaser.Scene {
 
     selectItem() {
         const item = this.menuItems[this.focusIndex];
-        this.sound.play('sfx', { sprite: 'button_click' });
+        this.sound.play('button_click');
         if (item.id === 'play') {
             this.scene.start('GameScene');
         } else if (item.id === 'sound') {
@@ -310,7 +310,7 @@ class GameScene extends Phaser.Scene {
         };
 
         updateTurnText('[Enter] to Roll');
-        this.sound.play('sfx', { sprite: 'game_start' });
+        this.sound.play('game_start');
 
         let gameState = 'WAIT_ROLL'; // WAIT_ROLL, ROLLING, WAIT_MOVE, AI_MOVE
 
@@ -356,7 +356,7 @@ class GameScene extends Phaser.Scene {
             } else if (t.state === 'path') {
                 const coords = getCellCoords(t.color, t.relativePos);
                 if (coords) {
-                    this.sound.play('sfx', { sprite: 'token_move', volume: 0.6 });
+                    this.sound.play('token_move', { volume: 0.6 });
                     t.sprite.x = coords.x;
                     t.sprite.y = coords.y;
                 }
@@ -454,7 +454,7 @@ class GameScene extends Phaser.Scene {
                             ((STARTS[other.color] + other.relativePos) % 52) === absIndex
                         );
                         if (captured.length > 0) {
-                            this.sound.play('sfx', { sprite: 'token_capture' });
+                            this.sound.play('token_capture');
                             captured.forEach(c => {
                                 c.state = 'home';
                                 c.relativePos = 0;
@@ -465,12 +465,12 @@ class GameScene extends Phaser.Scene {
                     }
                 }
                 if (t.relativePos === 56) {
-                    this.sound.play('sfx', { sprite: 'token_home' });
+                    this.sound.play('token_home');
                     
                     const myTokens = tokens.filter(tok => tok.color === t.color);
                     const allHome = myTokens.every(tok => tok.relativePos === 56);
                     if (allHome) {
-                        this.sound.play('sfx', { sprite: 'game_win' });
+                        this.sound.play('game_win');
                         updateTurnText(`${t.color.toUpperCase()} WINS!`);
                         gameState = 'WIN';
                         // Could add a win animation or scene here
@@ -497,7 +497,7 @@ class GameScene extends Phaser.Scene {
                         duration: 150,
                         ease: 'Linear',
                         onComplete: () => {
-                            this.sound.play('sfx', { sprite: 'token_move', volume: 0.4 });
+                            this.sound.play('token_move', { volume: 0.4 });
                             stepIndex++;
                             nextStep();
                         }
@@ -575,14 +575,14 @@ class GameScene extends Phaser.Scene {
 
         const executeRoll = (r1: number, r2: number) => {
              isBonusTurn = (r1 === 6 && r2 === 6);
-             if (isBonusTurn) this.sound.play('sfx', { sprite: 'six_bonus' });
+             if (isBonusTurn) this.sound.play('six_bonus');
              remainingDice = [r1, r2];
              evaluateMoves();
         };
 
         const rollDice = () => {
             if (gameState !== 'WAIT_ROLL') return;
-            this.sound.play('sfx', { sprite: 'dice_roll' });
+            this.sound.play('dice_roll');
             gameState = 'ROLLING';
             updateTurnText(turnOwner === 'YOU' ? 'YOU ARE ROLLING...' : 'AI IS ROLLING...');
             dice1.setVisible(true);

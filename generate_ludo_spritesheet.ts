@@ -91,7 +91,7 @@ function addSpecular(im: Canvas, centerRatio = [0.32, 0.30], radiusRatio = 0.22,
     const cx = w * centerRatio[0], cy = h * centerRatio[1];
     const rad = Math.max(w, h) * radiusRatio;
     
-    sCtx.filter = `blur(${Math.max(w, h) * 0.045}px)`;
+    (sCtx as any).filter = `blur(${Math.max(w, h) * 0.045}px)`;
     sCtx.fillStyle = `rgba(255, 255, 255, ${strength / 255})`;
     sCtx.beginPath();
     sCtx.ellipse(cx, cy, rad, rad * 0.7, 0, 0, Math.PI * 2);
