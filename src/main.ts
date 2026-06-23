@@ -1,5 +1,10 @@
 import Phaser from 'phaser';
 
+// Initialize simulator only in development
+if (import.meta.env.DEV) {
+    import('./simulator').then(m => m.initSimulator());
+}
+
 const GameState = {
     soundEnabled: true
 };
@@ -95,7 +100,7 @@ class MenuScene extends Phaser.Scene {
         this.focusIndex = 0;
         
         this.add.image(120, 60, 'ludo', 'banner_ribbon').setScale(0.5);
-        this.add.text(120, 58, 'LUDO PRO', { fontSize: '20px', color: '#FFD700', fontStyle: 'bold', stroke: '#000', strokeThickness: 3 }).setOrigin(0.5).setDepth(10);
+        this.add.text(120, 50, 'LUDO PRO', { fontSize: '20px', color: '#FFD700', fontStyle: 'bold' }).setOrigin(0.5);
 
         this.menuItems = [
             { id: 'play', y: 140, text: 'PLAY GAME', icon: 'btn_play' },
@@ -657,8 +662,7 @@ const config: Phaser.Types.Core.GameConfig = {
     height: 320,
     backgroundColor: '#1E2235',
     scale: {
-        mode: Phaser.Scale.FIT,
-        autoCenter: Phaser.Scale.CENTER_BOTH
+        mode: Phaser.Scale.FIT
     },
     scene: [BootScene, MenuScene, HelpScene, GameScene],
     render: {

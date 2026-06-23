@@ -18,11 +18,12 @@
         font-family: sans-serif;
       }
       #game-container { 
-        width: 100%; 
-        height: 100%; 
+        width: 240px; 
+        height: 320px; 
         background-color: #1E2235;
         position: relative;
         overflow: hidden;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
       }
       #loading-overlay {
         position: absolute;
@@ -56,57 +57,6 @@
         letter-spacing: 0.5px;
       }
     </style>
-    <style data-simulator>
-      #gamepad {
-        display: grid;
-        grid-template-columns: repeat(3, 60px);
-        gap: 10px;
-        margin-top: 15px;
-      }
-      .btn {
-        width: 60px;
-        height: 50px;
-        background: #333;
-        border: 2px solid #555;
-        border-radius: 8px;
-        color: white;
-        font-weight: bold;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        user-select: none;
-        -webkit-tap-highlight-color: transparent;
-      }
-      .btn:active {
-        background: #666;
-      }
-      .btn-empty {
-        background: transparent;
-        border: none;
-      }
-      .soft-keys {
-        display: flex;
-        justify-content: space-between;
-        width: 240px;
-        margin-top: 20px;
-      }
-      .btn-soft {
-        width: 80px;
-        height: 35px;
-        background: #444;
-        border: 2px solid #666;
-        border-radius: 4px;
-        color: white;
-        font-size: 14px;
-        cursor: pointer;
-        user-select: none;
-        font-weight: bold;
-      }
-      .btn-soft:active {
-        background: #777;
-      }
-    </style>
   </head>
   <body>
     <div id="game-container">
@@ -115,30 +65,7 @@
         <div class="loading-text">Loading...</div>
       </div>
     </div>
-    <div class="soft-keys" data-simulator>
-      <div class="btn-soft" style="display: flex; align-items: center; justify-content: center;" onclick="simulateKey('SoftLeft')">Back</div>
-      <div class="btn-soft" style="display: flex; align-items: center; justify-content: center;" onclick="simulateKey('SoftRight')">Right</div>
-    </div>
-    <div id="gamepad" data-simulator>
-      <div class="btn-empty"></div>
-      <div class="btn" onclick="simulateKey('ArrowUp')">▲</div>
-      <div class="btn-empty"></div>
-      <div class="btn" onclick="simulateKey('ArrowLeft')">◀</div>
-      <div class="btn" onclick="simulateKey('Enter')">OK</div>
-      <div class="btn" onclick="simulateKey('ArrowRight')">▶</div>
-      <div class="btn-empty"></div>
-      <div class="btn" onclick="simulateKey('ArrowDown')">▼</div>
-      <div class="btn-empty"></div>
-    </div>
 
-    <script data-simulator>
-      function simulateKey(key) {
-        document.body.dispatchEvent(new KeyboardEvent('keydown', { key: key, bubbles: true }));
-        setTimeout(() => {
-          document.body.dispatchEvent(new KeyboardEvent('keyup', { key: key, bubbles: true }));
-        }, 50);
-      }
-    </script>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
