@@ -1,0 +1,6 @@
+{
+  "name": "KaiOS Ludo Pro",
+  "description": "A premium Ludo game for KaiOS devices with high-quality sounds and smooth gameplay.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

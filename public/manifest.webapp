@@ -1,0 +1,24 @@
+{
+  "name": "KaiOS Ludo",
+  "description": "A classic Ludo game for KaiOS",
+  "version": "1.0.0",
+  "launch_path": "/index.html",
+  "origin": "app://kaios-ludo.antigravity.dev",
+  "icons": {
+    "56": "/assets/icon-56.png",
+    "112": "/assets/icon-112.png"
+  },
+  "developer": {
+    "name": "AI Studio",
+    "url": "https://ai.studio"
+  },
+  "type": "privileged",
+  "permissions": {},
+  "locales": {
+    "en-US": {
+      "name": "KaiOS Ludo",
+      "description": "A classic Ludo game for KaiOS"
+    }
+  },
+  "default_locale": "en-US"
+}

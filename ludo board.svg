@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 600 600" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="border-radius: 16px; background: #1D1914; overflow: hidden;">
+  <defs>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D21F3C" />
+      <stop offset="60%" stop-color="#9B111E" />
+      <stop offset="100%" stop-color="#5C0A12" />
+    </linearGradient>
+    <radialGradient id="redRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D21F3C" />
+      <stop offset="80%" stop-color="#9B111E" />
+      <stop offset="100%" stop-color="#5C0A12" />
+    </radialGradient>
+
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00A86B" />
+      <stop offset="60%" stop-color="#00563B" />
+      <stop offset="100%" stop-color="#003323" />
+    </linearGradient>
+    <radialGradient id="greenRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#00A86B" />
+      <stop offset="80%" stop-color="#00563B" />
+      <stop offset="100%" stop-color="#003323" />
+    </radialGradient>
+
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B7AFA" />
+      <stop offset="60%" stop-color="#0F52BA" />
+      <stop offset="100%" stop-color="#093170" />
+    </linearGradient>
+    <radialGradient id="blueRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3B7AFA" />
+      <stop offset="80%" stop-color="#0F52BA" />
+      <stop offset="100%" stop-color="#093170" />
+    </radialGradient>
+
+    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E5AB" />
+      <stop offset="60%" stop-color="#C5A029" />
+      <stop offset="100%" stop-color="#785F14" />
+    </linearGradient>
+    <radialGradient id="yellowRadial" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F3E5AB" />
+      <stop offset="80%" stop-color="#C5A029" />
+      <stop offset="100%" stop-color="#785F14" />
+    </radialGradient>
+
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF4D4" />
+      <stop offset="30%" stop-color="#E6C45E" />
+      <stop offset="50%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#A37E1C" />
+      <stop offset="100%" stop-color="#5E4E0A" />
+    </linearGradient>
+
+    <linearGradient id="neutralGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCFAF8" />
+      <stop offset="100%" stop-color="#F4EFEB" />
+    </linearGradient>
+
+    <linearGradient id="glossGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.4" />
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+
+    <filter id="tileShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="2" stdDeviation="1.5" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+    <filter id="homeShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.4" />
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="300" cy="300" r="260" fill="none" stroke="rgba(212, 175, 55, 0.15)" stroke-width="60" filter="blur(30px)" opacity="0.8" />
+
+  <!-- Gold outer ring -->
+  <rect x="5" y="5" width="590" height="590" fill="none" stroke="url(#goldGrad)" stroke-width="3" opacity="0.6" rx="16" />
+  <!-- Grid Path Tracks -->
+  <g filter="url(#tileShadow)">
+    <rect x="241" y="1" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="1" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="1" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="41" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="41" width="38" height="38" rx="0" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="41" width="38" height="38" rx="0" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="81" width="38" height="38" rx="0" fill="#EEF2F6" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="81" width="38" height="38" rx="0" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="81" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="121" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="121" width="38" height="38" rx="0" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="121" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="161" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="161" width="38" height="38" rx="0" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="161" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="201" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="201" width="38" height="38" rx="0" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="201" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="1" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="41" y="241" width="38" height="38" rx="0" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="81" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="121" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="161" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="201" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="361" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="401" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="441" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="481" y="241" width="38" height="38" rx="0" fill="#EEF2F6" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="521" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="561" y="241" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="1" y="281" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="41" y="281" width="38" height="38" rx="0" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="81" y="281" width="38" height="38" rx="0" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="121" y="281" width="38" height="38" rx="0" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="161" y="281" width="38" height="38" rx="0" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="201" y="281" width="38" height="38" rx="0" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="361" y="281" width="38" height="38" rx="0" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="401" y="281" width="38" height="38" rx="0" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="441" y="281" width="38" height="38" rx="0" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="481" y="281" width="38" height="38" rx="0" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="521" y="281" width="38" height="38" rx="0" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="561" y="281" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="1" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="41" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="81" y="321" width="38" height="38" rx="0" fill="#EEF2F6" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="121" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="161" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="201" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="361" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="401" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="441" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="481" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="521" y="321" width="38" height="38" rx="0" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="561" y="321" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="361" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="361" width="38" height="38" rx="0" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="361" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="401" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="401" width="38" height="38" rx="0" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="401" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="441" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="441" width="38" height="38" rx="0" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="441" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="481" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="481" width="38" height="38" rx="0" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="481" width="38" height="38" rx="0" fill="#EEF2F6" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="521" width="38" height="38" rx="0" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="521" width="38" height="38" rx="0" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="521" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="241" y="561" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="281" y="561" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <rect x="321" y="561" width="38" height="38" rx="0" fill="url(#neutralGrad)" stroke="url(#goldGrad)" stroke-width="1.2" />
+  </g>
+  <!-- Safety Star Accents -->
+  <g>
+    <g transform="translate(100, 340)">
+      <circle r="14" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.3" />
+      <path d="M 0 -12 L 3 -3 L 12 0 L 3 3 L 0 12 L -3 3 L -12 0 L -3 -3 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" />
+      <circle r="2" fill="#FFFFFF" />
+    </g>
+    <g transform="translate(260, 100)">
+      <circle r="14" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.3" />
+      <path d="M 0 -12 L 3 -3 L 12 0 L 3 3 L 0 12 L -3 3 L -12 0 L -3 -3 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" />
+      <circle r="2" fill="#FFFFFF" />
+    </g>
+    <g transform="translate(500, 260)">
+      <circle r="14" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.3" />
+      <path d="M 0 -12 L 3 -3 L 12 0 L 3 3 L 0 12 L -3 3 L -12 0 L -3 -3 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" />
+      <circle r="2" fill="#FFFFFF" />
+    </g>
+    <g transform="translate(340, 500)">
+      <circle r="14" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.3" />
+      <path d="M 0 -12 L 3 -3 L 12 0 L 3 3 L 0 12 L -3 3 L -12 0 L -3 -3 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" />
+      <circle r="2" fill="#FFFFFF" />
+    </g>
+    <g transform="translate(60, 260)">
+      <circle r="14" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.3" />
+      <path d="M 0 -12 L 3 -3 L 12 0 L 3 3 L 0 12 L -3 3 L -12 0 L -3 -3 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" />
+      <circle r="2" fill="#FFFFFF" />
+    </g>
+    <g transform="translate(340, 60)">
+      <circle r="14" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.3" />
+      <path d="M 0 -12 L 3 -3 L 12 0 L 3 3 L 0 12 L -3 3 L -12 0 L -3 -3 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" />
+      <circle r="2" fill="#FFFFFF" />
+    </g>
+    <g transform="translate(540, 340)">
+      <circle r="14" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.3" />
+      <path d="M 0 -12 L 3 -3 L 12 0 L 3 3 L 0 12 L -3 3 L -12 0 L -3 -3 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" />
+      <circle r="2" fill="#FFFFFF" />
+    </g>
+    <g transform="translate(260, 540)">
+      <circle r="14" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" opacity="0.3" />
+      <path d="M 0 -12 L 3 -3 L 12 0 L 3 3 L 0 12 L -3 3 L -12 0 L -3 -3 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.4)" stroke-width="0.8" />
+      <circle r="2" fill="#FFFFFF" />
+    </g>
+  </g>
+  <!-- Movement Helpers -->
+  <g>
+    <path d="M 6 300 L 22 292 L 22 297 L 34 297 L 34 303 L 22 303 L 22 308 Z" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1" />
+    <path d="M 300 6 L 292 22 L 297 22 L 297 34 L 303 34 L 303 22 L 308 22 Z" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1" />
+    <path d="M 594 300 L 578 308 L 578 303 L 566 303 L 566 297 L 578 297 L 578 292 Z" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1" />
+    <path d="M 300 594 L 308 578 L 303 578 L 303 566 L 297 566 L 297 578 L 292 578 Z" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1" />
+  </g>
+  <!-- Four Home Nesting Fortresses -->
+  <g filter="url(#homeShadow)">
+    <rect x="10" y="10" width="220" height="220" rx="12.8" fill="#1D1914" stroke="#5C0A12" stroke-width="2.5" />
+    <rect x="18" y="18" width="204" height="204" rx="11.520000000000001" fill="url(#redRadial)" opacity="0.22" />
+    <circle cx="120" cy="120" r="90" fill="rgba(255, 255, 255, 0.95)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <circle cx="120" cy="120" r="84" fill="none" stroke="#5C0A12" stroke-width="1" stroke-dasharray="3,3" />
+    <circle cx="120" cy="120" r="65" fill="url(#redRadial)" opacity="0.85" />
+    <circle cx="120" cy="120" r="65" fill="none" stroke="url(#goldGrad)" stroke-width="1" />
+    <g transform="translate(120, 120)">
+      <circle r="44" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" stroke-dasharray="6,4" />
+      <path d="M 0 -35 L 8 -10 L 33 -10 L 13 5 L 21 30 L 0 15 L -21 30 L -13 5 L -33 -10 L -8 -10 Z" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.6" />
+      <circle r="12" fill="#5C0A12" stroke="url(#goldGrad)" stroke-width="1" />
+      <path d="M -6 4 L 6 4 L 7 -3 L 3 0 L 0 -6 L -3 0 L -7 -3 Z" fill="url(#goldGrad)" />
+    </g>
+    <text x="120" y="48" text-anchor="middle" fill="url(#goldGrad)" font-size="6" font-weight="bold" letter-spacing="1.5" font-family="monospace">I. CROWN CELL</text>
+    <circle cx="80" cy="80" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="80" cy="80" r="19" fill="url(#redRadial)" opacity="0.95" />
+    <circle cx="75" cy="75" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="80" cy="80" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="160" cy="80" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="160" cy="80" r="19" fill="url(#redRadial)" opacity="0.95" />
+    <circle cx="155" cy="75" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="160" cy="80" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="80" cy="160" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="80" cy="160" r="19" fill="url(#redRadial)" opacity="0.95" />
+    <circle cx="75" cy="155" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="80" cy="160" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="160" cy="160" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="160" cy="160" r="19" fill="url(#redRadial)" opacity="0.95" />
+    <circle cx="155" cy="155" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="160" cy="160" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+  </g>
+  <g filter="url(#homeShadow)">
+    <rect x="370" y="10" width="220" height="220" rx="12.8" fill="#1D1914" stroke="#003323" stroke-width="2.5" />
+    <rect x="378" y="18" width="204" height="204" rx="11.520000000000001" fill="url(#greenRadial)" opacity="0.22" />
+    <circle cx="480" cy="120" r="90" fill="rgba(255, 255, 255, 0.95)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <circle cx="480" cy="120" r="84" fill="none" stroke="#003323" stroke-width="1" stroke-dasharray="3,3" />
+    <circle cx="480" cy="120" r="65" fill="url(#greenRadial)" opacity="0.85" />
+    <circle cx="480" cy="120" r="65" fill="none" stroke="url(#goldGrad)" stroke-width="1" />
+    <g transform="translate(480, 120)">
+      <circle r="44" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" stroke-dasharray="6,4" />
+      <path d="M 0 -35 L 8 -10 L 33 -10 L 13 5 L 21 30 L 0 15 L -21 30 L -13 5 L -33 -10 L -8 -10 Z" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.6" />
+      <circle r="12" fill="#003323" stroke="url(#goldGrad)" stroke-width="1" />
+      <path d="M -6 4 L 6 4 L 7 -3 L 3 0 L 0 -6 L -3 0 L -7 -3 Z" fill="url(#goldGrad)" />
+    </g>
+    <text x="480" y="48" text-anchor="middle" fill="url(#goldGrad)" font-size="6" font-weight="bold" letter-spacing="1.5" font-family="monospace">II. DRUID JADE</text>
+    <circle cx="440" cy="80" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="440" cy="80" r="19" fill="url(#greenRadial)" opacity="0.95" />
+    <circle cx="435" cy="75" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="440" cy="80" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="520" cy="80" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="520" cy="80" r="19" fill="url(#greenRadial)" opacity="0.95" />
+    <circle cx="515" cy="75" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="520" cy="80" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="440" cy="160" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="440" cy="160" r="19" fill="url(#greenRadial)" opacity="0.95" />
+    <circle cx="435" cy="155" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="440" cy="160" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="520" cy="160" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="520" cy="160" r="19" fill="url(#greenRadial)" opacity="0.95" />
+    <circle cx="515" cy="155" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="520" cy="160" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+  </g>
+  <g filter="url(#homeShadow)">
+    <rect x="10" y="370" width="220" height="220" rx="12.8" fill="#1D1914" stroke="#093170" stroke-width="2.5" />
+    <rect x="18" y="378" width="204" height="204" rx="11.520000000000001" fill="url(#blueRadial)" opacity="0.22" />
+    <circle cx="120" cy="480" r="90" fill="rgba(255, 255, 255, 0.95)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <circle cx="120" cy="480" r="84" fill="none" stroke="#093170" stroke-width="1" stroke-dasharray="3,3" />
+    <circle cx="120" cy="480" r="65" fill="url(#blueRadial)" opacity="0.85" />
+    <circle cx="120" cy="480" r="65" fill="none" stroke="url(#goldGrad)" stroke-width="1" />
+    <g transform="translate(120, 480)">
+      <circle r="44" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" stroke-dasharray="6,4" />
+      <path d="M 0 -35 L 8 -10 L 33 -10 L 13 5 L 21 30 L 0 15 L -21 30 L -13 5 L -33 -10 L -8 -10 Z" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.6" />
+      <circle r="12" fill="#093170" stroke="url(#goldGrad)" stroke-width="1" />
+      <path d="M -6 4 L 6 4 L 7 -3 L 3 0 L 0 -6 L -3 0 L -7 -3 Z" fill="url(#goldGrad)" />
+    </g>
+    <text x="120" y="408" text-anchor="middle" fill="url(#goldGrad)" font-size="6" font-weight="bold" letter-spacing="1.5" font-family="monospace">IV. SAPPHIRE</text>
+    <circle cx="80" cy="440" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="80" cy="440" r="19" fill="url(#blueRadial)" opacity="0.95" />
+    <circle cx="75" cy="435" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="80" cy="440" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="160" cy="440" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="160" cy="440" r="19" fill="url(#blueRadial)" opacity="0.95" />
+    <circle cx="155" cy="435" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="160" cy="440" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="80" cy="520" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="80" cy="520" r="19" fill="url(#blueRadial)" opacity="0.95" />
+    <circle cx="75" cy="515" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="80" cy="520" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="160" cy="520" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="160" cy="520" r="19" fill="url(#blueRadial)" opacity="0.95" />
+    <circle cx="155" cy="515" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="160" cy="520" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+  </g>
+  <g filter="url(#homeShadow)">
+    <rect x="370" y="370" width="220" height="220" rx="12.8" fill="#1D1914" stroke="#785F14" stroke-width="2.5" />
+    <rect x="378" y="378" width="204" height="204" rx="11.520000000000001" fill="url(#yellowRadial)" opacity="0.22" />
+    <circle cx="480" cy="480" r="90" fill="rgba(255, 255, 255, 0.95)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <circle cx="480" cy="480" r="84" fill="none" stroke="#785F14" stroke-width="1" stroke-dasharray="3,3" />
+    <circle cx="480" cy="480" r="65" fill="url(#yellowRadial)" opacity="0.85" />
+    <circle cx="480" cy="480" r="65" fill="none" stroke="url(#goldGrad)" stroke-width="1" />
+    <g transform="translate(480, 480)">
+      <circle r="44" fill="none" stroke="url(#goldGrad)" stroke-width="0.5" stroke-dasharray="6,4" />
+      <path d="M 0 -35 L 8 -10 L 33 -10 L 13 5 L 21 30 L 0 15 L -21 30 L -13 5 L -33 -10 L -8 -10 Z" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" opacity="0.6" />
+      <circle r="12" fill="#785F14" stroke="url(#goldGrad)" stroke-width="1" />
+      <path d="M -6 4 L 6 4 L 7 -3 L 3 0 L 0 -6 L -3 0 L -7 -3 Z" fill="url(#goldGrad)" />
+    </g>
+    <text x="480" y="408" text-anchor="middle" fill="url(#goldGrad)" font-size="6" font-weight="bold" letter-spacing="1.5" font-family="monospace">III. GOLD OCHRE</text>
+    <circle cx="440" cy="440" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="440" cy="440" r="19" fill="url(#yellowRadial)" opacity="0.95" />
+    <circle cx="435" cy="435" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="440" cy="440" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="520" cy="440" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="520" cy="440" r="19" fill="url(#yellowRadial)" opacity="0.95" />
+    <circle cx="515" cy="435" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="520" cy="440" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="440" cy="520" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="440" cy="520" r="19" fill="url(#yellowRadial)" opacity="0.95" />
+    <circle cx="435" cy="515" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="440" cy="520" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+    <circle cx="520" cy="520" r="22" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="1.2" />
+    <circle cx="520" cy="520" r="19" fill="url(#yellowRadial)" opacity="0.95" />
+    <circle cx="515" cy="515" r="6" fill="#FFFFFF" opacity="0.15" />
+    <circle cx="520" cy="520" r="4" fill="none" stroke="url(#goldGrad)" stroke-width="1" opacity="0.7" />
+  </g>
+  <!-- Central Victory Dome -->
+  <g filter="url(#homeShadow)">
+    <polygon points="240,240 300,300 240,360" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1.5" />
+    <polygon points="240,240 300,300 360,240" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1.5" />
+    <polygon points="360,240 300,300 360,360" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1.5" />
+    <polygon points="240,360 300,300 360,360" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1.5" />
+    <g transform="translate(300, 300)">
+      <circle r="36" fill="#1D1914" stroke="url(#goldGrad)" stroke-width="2" />
+      <circle r="32" fill="none" stroke="url(#goldGrad)" stroke-width="0.8" stroke-dasharray="5,3" />
+      <path d="M 0 -28 L 5 -8 L 25 -8 L 9 3 L 15 22 L 0 10 L -15 22 L -9 3 L -25 -8 L -5 -8 Z" fill="url(#goldGrad)" stroke="rgba(0,0,0,0.3)" stroke-width="0.8" />
+      <circle r="3" fill="url(#goldGrad)" />
+    </g>
+  </g>
+  <g>
+    <path d="M 6 300 L 22 292 L 22 297 L 34 297 L 34 303 L 22 303 L 22 308 Z" fill="url(#redGrad)" stroke="url(#goldGrad)" stroke-width="1" />
+    <path d="M 300 6 L 292 22 L 297 22 L 297 34 L 303 34 L 303 22 L 308 22 Z" fill="url(#greenGrad)" stroke="url(#goldGrad)" stroke-width="1" />
+    <path d="M 594 300 L 578 308 L 578 303 L 566 303 L 566 297 L 578 297 L 578 292 Z" fill="url(#yellowGrad)" stroke="url(#goldGrad)" stroke-width="1" />
+    <path d="M 300 594 L 308 578 L 303 578 L 303 566 L 297 566 L 297 578 L 292 578 Z" fill="url(#blueGrad)" stroke="url(#goldGrad)" stroke-width="1" />
+  </g>
+  <!-- Sample Active Pawns -->
+  <g id="exported-pawns">
+    <g transform="translate(80, 80)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#5C0A12" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#9B111E" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#9B111E" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(160, 160)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#5C0A12" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#9B111E" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#9B111E" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(100, 260)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#5C0A12" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#9B111E" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#9B111E" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(80, 440)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#093170" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#0F52BA" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#0F52BA" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(160, 520)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#093170" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#0F52BA" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#0F52BA" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(340, 500)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#093170" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#0F52BA" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#0F52BA" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(440, 80)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#003323" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#00563B" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#00563B" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(520, 160)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#003323" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#00563B" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#00563B" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(440, 440)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#785F14" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#C5A029" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#C5A029" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+    <g transform="translate(500, 260)"><g transform="scale(1) translate(-12, -13)">
+          <ellipse cx="12" cy="22" rx="10" ry="3.5" fill="black" opacity="0.3" />
+          <path d="M 3 20 L 21 20 Q 21 23 18 23 L 6 23 Q 3 23 3 20 Z" fill="url(#goldGrad)" stroke="#785F14" stroke-width="1" />
+          <rect x="4" y="17" width="16" height="3" rx="1" fill="#C5A029" stroke="url(#goldGrad)" stroke-width="0.8" />
+          <path d="M 4 17 L 4 10 L 8 14 L 12 7 L 16 14 L 20 10 L 20 17 Z" fill="#C5A029" stroke="url(#goldGrad)" stroke-width="1" />
+          <circle cx="12" cy="6" r="2" fill="url(#goldGrad)" />
+        </g></g>
+  </g>
+  <!-- Acrylic Shine reflection -->
+  <g pointer-events="none">
+    <path d="M 12 12 Q 300 200 588 588 L 0 588 Z" fill="url(#glossGrad)" opacity="0.10" />
+    <rect x="12" y="12" width="576" height="576" fill="none" stroke="#FFFFFF" stroke-width="0.8" opacity="0.18" rx="14.4" />
+  </g>
+</svg>
