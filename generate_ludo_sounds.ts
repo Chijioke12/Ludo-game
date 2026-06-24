@@ -321,11 +321,7 @@ async function main() {
     for (const [name, gen] of generators) {
         const sig = gen();
         const wav = new WaveFile();
-        const pcm = new Int16Array(sig.length);
-        for (let i = 0; i < sig.length; i++) {
-            pcm[i] = Math.max(-32768, Math.min(32767, Math.floor(sig[i] * 32767)));
-        }
-        wav.fromScratch(1, SR, '16', pcm);
+        wav.fromScratch(1, SR, '32f', sig);
         fs.writeFileSync(path.join(outDir, `${name}.wav`), wav.toBuffer());
         console.log(`Generated ${name}.wav`);
     }

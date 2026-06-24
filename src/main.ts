@@ -88,6 +88,12 @@ class BootScene extends Phaser.Scene {
     }
 }
 
+function playSoundSafe(scene: Phaser.Scene, key: string, config?: any) {
+    if (scene.cache.audio.exists(key)) {
+        scene.sound.play(key, config);
+    }
+}
+
 class MenuScene extends Phaser.Scene {
     focusIndex: number = 0;
     menuItems: any[] = [];
@@ -99,21 +105,21 @@ class MenuScene extends Phaser.Scene {
     create() {
         this.focusIndex = 0;
         
-        this.add.image(120, 60, 'ludo', 'banner_ribbon').setScale(0.5);
-        this.add.text(120, 50, 'LUDO PRO', { fontSize: '20px', color: '#FFD700', fontStyle: 'bold' }).setOrigin(0.5);
+        this.add.image(120, 60, 'ludo', 'banner_ribbon').setScale(0.7);
+        this.add.text(120, 58, 'LUDO PRO', { fontSize: '26px', color: '#FFD700', fontStyle: 'bold', stroke: '#000', strokeThickness: 4 }).setOrigin(0.5).setDepth(10);
 
         this.menuItems = [
-            { id: 'play', y: 140, text: 'PLAY GAME', icon: 'btn_play' },
-            { id: 'sound', y: 190, text: `SOUND: ${GameState.soundEnabled ? 'ON' : 'OFF'}`, icon: GameState.soundEnabled ? 'btn_sound_on' : 'btn_sound_off' },
-            { id: 'help', y: 240, text: 'HELP', icon: 'btn_restart' }
+            { id: 'play', y: 150, text: 'PLAY GAME', icon: 'btn_play' },
+            { id: 'sound', y: 210, text: `SOUND: ${GameState.soundEnabled ? 'ON' : 'OFF'}`, icon: GameState.soundEnabled ? 'btn_sound_on' : 'btn_sound_off' },
+            { id: 'help', y: 270, text: 'HELP', icon: 'btn_restart' }
         ];
 
-        this.focusIndicator = this.add.image(80, 140, 'focus', 'focus_circle_cyan').setScale(0.4).setAlpha(0);
+        this.focusIndicator = this.add.image(60, 140, 'focus', 'focus_circle_cyan').setScale(0.6).setAlpha(0);
 
         this.menuSprites = [];
         this.menuItems.forEach(item => {
-            const icon = this.add.image(70, item.y, 'ludo', item.icon).setScale(0.3);
-            const text = this.add.text(95, item.y, item.text, { fontSize: '16px', color: '#FFF', fontStyle: 'bold', stroke: '#000', strokeThickness: 3 }).setOrigin(0, 0.5);
+            const icon = this.add.image(60, item.y, 'ludo', item.icon).setDisplaySize(40, 40);
+            const text = this.add.text(90, item.y, item.text, { fontSize: '20px', color: '#FFF', fontStyle: 'bold', stroke: '#000', strokeThickness: 3 }).setOrigin(0, 0.5);
             this.menuSprites.push({ icon, text, id: item.id });
         });
 
@@ -135,9 +141,9 @@ class MenuScene extends Phaser.Scene {
     updateFocus() {
         const item = this.menuItems[this.focusIndex];
         this.focusIndicator.setAlpha(1);
-        this.focusIndicator.setPosition(70, item.y);
+        this.focusIndicator.setPosition(60, item.y);
         
-        this.sound.play('button_click', { volume: 0.5 });
+        playSoundSafe(this, 'button_click', { volume: 0.5 });
 
         this.menuSprites.forEach((sprite, idx) => {
             if (idx === this.focusIndex) {
@@ -155,7 +161,7 @@ class MenuScene extends Phaser.Scene {
 
     selectItem() {
         const item = this.menuItems[this.focusIndex];
-        this.sound.play('button_click');
+        playSoundSafe(this, 'button_click');
         if (item.id === 'play') {
             this.scene.start('GameScene');
         } else if (item.id === 'sound') {
@@ -189,13 +195,13 @@ class HelpScene extends Phaser.Scene {
         ];
 
         this.add.text(20, 65, helpText.join('\n'), { 
-            fontSize: '10px', 
+            fontSize: '12px', 
             color: '#FFF', 
-            lineSpacing: 2,
+            lineSpacing: 4,
             wordWrap: { width: 210 } 
         });
 
-        this.add.text(120, 300, 'Press any key to return', { fontSize: '10px', color: '#00FF00' }).setOrigin(0.5);
+        this.add.text(120, 305, 'Press any key to return', { fontSize: '12px', color: '#00FF00', fontStyle: 'bold' }).setOrigin(0.5);
         
         // Add a small delay so a "Menu" press doesn't instantly close help
         this.time.delayedCall(200, () => {
@@ -219,6 +225,8 @@ class GameScene extends Phaser.Scene {
         const quadSize = CELL_SIZE * 6;
         const centerSize = CELL_SIZE * 3;
 
+        this.add.rectangle(0, OFFSET_Y, 240, 240, 0x111111).setOrigin(0).setDepth(-10);
+
         this.add.image(0, OFFSET_Y, 'ludo', 'home_quadrant_green').setOrigin(0).setDisplaySize(quadSize, quadSize);
         this.add.image(9 * CELL_SIZE, OFFSET_Y, 'ludo', 'home_quadrant_red').setOrigin(0).setDisplaySize(quadSize, quadSize);
         this.add.image(0, OFFSET_Y + 9 * CELL_SIZE, 'ludo', 'home_quadrant_yellow').setOrigin(0).setDisplaySize(quadSize, quadSize);
@@ -226,7 +234,7 @@ class GameScene extends Phaser.Scene {
 
         const addCell = (x: number, y: number, name: string) => {
             this.add.image(x * CELL_SIZE + CELL_SIZE/2, OFFSET_Y + y * CELL_SIZE + CELL_SIZE/2, 'ludo', name)
-                .setDisplaySize(CELL_SIZE, CELL_SIZE);
+                .setDisplaySize(CELL_SIZE + 0.5, CELL_SIZE + 0.5);
         };
 
         // Draw track area background to ensure no GAPS
@@ -257,14 +265,14 @@ class GameScene extends Phaser.Scene {
         }
         addCell(13, 8, 'cell_safe'); addCell(12, 6, 'cell_safe');
 
-        this.add.image(6 * CELL_SIZE, OFFSET_Y + 6 * CELL_SIZE, 'ludo', 'center_home')
-            .setOrigin(0).setDisplaySize(centerSize, centerSize);
+        this.add.image(7.5 * CELL_SIZE, OFFSET_Y + 7.5 * CELL_SIZE, 'ludo', 'center_home')
+            .setDisplaySize(centerSize, centerSize);
 
         const lableColor = '#FFF';
-        this.add.text(3 * CELL_SIZE, OFFSET_Y + 0.8 * CELL_SIZE, 'AI', { fontSize: '16px', color: lableColor, fontStyle: 'bold', stroke: '#000', strokeThickness: 4 }).setOrigin(0.5);
-        this.add.text(12 * CELL_SIZE, OFFSET_Y + 0.8 * CELL_SIZE, 'AI', { fontSize: '16px', color: lableColor, fontStyle: 'bold', stroke: '#000', strokeThickness: 4 }).setOrigin(0.5);
-        this.add.text(3 * CELL_SIZE, OFFSET_Y + 14.2 * CELL_SIZE, 'YOU', { fontSize: '16px', color: lableColor, fontStyle: 'bold', stroke: '#000', strokeThickness: 4 }).setOrigin(0.5);
-        this.add.text(12 * CELL_SIZE, OFFSET_Y + 14.2 * CELL_SIZE, 'YOU', { fontSize: '16px', color: lableColor, fontStyle: 'bold', stroke: '#000', strokeThickness: 4 }).setOrigin(0.5);
+        this.add.text(3 * CELL_SIZE, OFFSET_Y + 0.8 * CELL_SIZE, 'AI', { fontSize: '20px', color: lableColor, fontStyle: 'bold', stroke: '#000', strokeThickness: 5 }).setOrigin(0.5);
+        this.add.text(12 * CELL_SIZE, OFFSET_Y + 0.8 * CELL_SIZE, 'AI', { fontSize: '20px', color: lableColor, fontStyle: 'bold', stroke: '#000', strokeThickness: 5 }).setOrigin(0.5);
+        this.add.text(3 * CELL_SIZE, OFFSET_Y + 14.2 * CELL_SIZE, 'YOU', { fontSize: '20px', color: lableColor, fontStyle: 'bold', stroke: '#000', strokeThickness: 5 }).setOrigin(0.5);
+        this.add.text(12 * CELL_SIZE, OFFSET_Y + 14.2 * CELL_SIZE, 'YOU', { fontSize: '20px', color: lableColor, fontStyle: 'bold', stroke: '#000', strokeThickness: 5 }).setOrigin(0.5);
 
         const LUDO_PATH = [
             {x: 6, y: 14}, {x: 6, y: 13}, {x: 6, y: 12}, {x: 6, y: 11}, {x: 6, y: 10}, {x: 6, y: 9},
@@ -292,16 +300,22 @@ class GameScene extends Phaser.Scene {
 
         const tokens: any[] = [];
         const renderHomeTokens = (color: string, startX: number, startY: number) => {
-            const tokenSize = 12;
+            const tokenSize = 24;
+            const p0 = 2 * CELL_SIZE;
+            const p1 = 4 * CELL_SIZE;
+            
             const positions = [
-                { x: startX + 2.28 * CELL_SIZE, y: startY + 2.28 * CELL_SIZE },
-                { x: startX + 3.72 * CELL_SIZE, y: startY + 2.28 * CELL_SIZE },
-                { x: startX + 2.28 * CELL_SIZE, y: startY + 3.72 * CELL_SIZE },
-                { x: startX + 3.72 * CELL_SIZE, y: startY + 3.72 * CELL_SIZE }
+                { x: startX + p0, y: startY + p0 },
+                { x: startX + p1, y: startY + p0 },
+                { x: startX + p0, y: startY + p1 },
+                { x: startX + p1, y: startY + p1 }
             ];
             positions.forEach((pos, idx) => {
                 const sprite = this.add.image(pos.x, pos.y, 'ludo', `token_${color}`).setDisplaySize(tokenSize, tokenSize);
-                tokens.push({ id: `${color}_${idx}`, color, state: 'home', relativePos: 0, homeX: pos.x, homeY: pos.y, sprite });
+                sprite.setDepth(10);
+                const shadow = this.add.ellipse(pos.x, pos.y + 4, tokenSize, tokenSize/2, 0x000000, 0.3);
+                shadow.setDepth(9);
+                tokens.push({ id: `${color}_${idx}`, color, state: 'home', relativePos: 0, homeX: pos.x, homeY: pos.y, sprite, shadow });
             });
         };
 
@@ -310,30 +324,30 @@ class GameScene extends Phaser.Scene {
         renderHomeTokens('yellow', 0, OFFSET_Y + 9 * CELL_SIZE);
         renderHomeTokens('blue', 9 * CELL_SIZE, OFFSET_Y + 9 * CELL_SIZE);
 
-        this.add.rectangle(120, 10, 240, 20, 0x000000, 0.6);
-        const turnText = this.add.text(120, 10, '', { fontSize: '10px', color: '#FFFF00', stroke: '#000', strokeThickness: 2, fontStyle: 'bold' }).setOrigin(0.5);
-        const hintText = this.add.text(120, 25, 'Arrows: Pick | Enter: Action', { fontSize: '8px', color: '#FFF', stroke: '#000', strokeThickness: 1 }).setOrigin(0.5);
+        this.add.rectangle(120, 15, 240, 30, 0x000000, 0.7);
+        const turnText = this.add.text(120, 10, '', { fontSize: '11px', color: '#FFFF00', stroke: '#000', strokeThickness: 3, fontStyle: 'bold' }).setOrigin(0.5);
+        const hintText = this.add.text(120, 25, 'Arrows: Pick | Enter: Action', { fontSize: '9px', color: '#FFF', stroke: '#000', strokeThickness: 2 }).setOrigin(0.5);
 
         let turnOwner = 'YOU'; // 'YOU' or 'AI'
         
         const updateTurnText = (str: string) => {
-            turnText.setText(`TURN: ${turnOwner} - ${str}`);
+            turnText.setText(`${turnOwner}: ${str}`);
             turnText.setColor(turnOwner === 'YOU' ? '#00FF00' : '#FF0000');
         };
 
         updateTurnText('[Enter] to Roll');
-        this.sound.play('game_start');
+        playSoundSafe(this, 'game_start');
 
         let gameState = 'WAIT_ROLL'; // WAIT_ROLL, ROLLING, WAIT_MOVE, AI_MOVE
 
-        const focusFrame = this.add.image(0, 0, 'focus', 'focus_cell_gold').setDisplaySize(CELL_SIZE + 4, CELL_SIZE + 4).setVisible(false);
-        this.tweens.add({ targets: focusFrame, alpha: 0.2, yoyo: true, repeat: -1, duration: 300 });
+        const focusFrame = this.add.image(0, 0, 'focus', 'focus_cell_gold').setDisplaySize(24, 24).setVisible(false).setDepth(25);
+        this.tweens.add({ targets: focusFrame, alpha: 0.6, yoyo: true, repeat: -1, duration: 300 });
 
-        const targetFrame = this.add.image(0, 0, 'focus', 'focus_cell_cyan').setDisplaySize(CELL_SIZE + 4, CELL_SIZE + 4).setVisible(false);
-        this.tweens.add({ targets: targetFrame, alpha: 0.2, yoyo: true, repeat: -1, duration: 300 });
+        const targetFrame = this.add.image(0, 0, 'focus', 'focus_cell_cyan').setDisplaySize(24, 24).setVisible(false).setDepth(25);
+        this.tweens.add({ targets: targetFrame, alpha: 0.6, yoyo: true, repeat: -1, duration: 300 });
 
-        const dice1 = this.add.sprite(90, 160, 'ludo', 'dice_face_6').setDisplaySize(32, 32).setVisible(false);
-        const dice2 = this.add.sprite(150, 160, 'ludo', 'dice_face_6').setDisplaySize(32, 32).setVisible(false);
+        const dice1 = this.add.sprite(90, 160, 'ludo', 'dice_face_6').setDisplaySize(44, 44).setVisible(false).setDepth(20);
+        const dice2 = this.add.sprite(150, 160, 'ludo', 'dice_face_6').setDisplaySize(44, 44).setVisible(false).setDepth(20);
 
         let val1 = 0, val2 = 0;
         let remainingDice: number[] = [];
@@ -368,10 +382,14 @@ class GameScene extends Phaser.Scene {
             } else if (t.state === 'path') {
                 const coords = getCellCoords(t.color, t.relativePos);
                 if (coords) {
-                    this.sound.play('token_move', { volume: 0.6 });
+                    playSoundSafe(this, 'token_move', { volume: 0.6 });
                     t.sprite.x = coords.x;
                     t.sprite.y = coords.y;
                 }
+            }
+            if (t.shadow) {
+                t.shadow.x = t.sprite.x;
+                t.shadow.y = t.sprite.y + 4;
             }
         };
 
@@ -466,7 +484,7 @@ class GameScene extends Phaser.Scene {
                             ((STARTS[other.color] + other.relativePos) % 52) === absIndex
                         );
                         if (captured.length > 0) {
-                            this.sound.play('token_capture');
+                            playSoundSafe(this, 'token_capture');
                             captured.forEach(c => {
                                 c.state = 'home';
                                 c.relativePos = 0;
@@ -477,12 +495,12 @@ class GameScene extends Phaser.Scene {
                     }
                 }
                 if (t.relativePos === 56) {
-                    this.sound.play('token_home');
+                    playSoundSafe(this, 'token_home');
                     
                     const myTokens = tokens.filter(tok => tok.color === t.color);
                     const allHome = myTokens.every(tok => tok.relativePos === 56);
                     if (allHome) {
-                        this.sound.play('game_win');
+                        playSoundSafe(this, 'game_win');
                         updateTurnText(`${t.color.toUpperCase()} WINS!`);
                         gameState = 'WIN';
                         // Could add a win animation or scene here
@@ -509,7 +527,7 @@ class GameScene extends Phaser.Scene {
                         duration: 150,
                         ease: 'Linear',
                         onComplete: () => {
-                            this.sound.play('token_move', { volume: 0.4 });
+                            playSoundSafe(this, 'token_move', { volume: 0.4 });
                             stepIndex++;
                             nextStep();
                         }
@@ -570,7 +588,7 @@ class GameScene extends Phaser.Scene {
                     gameState = 'WAIT_MOVE';
                     activeMoveIdx = 0;
                     updateFocus();
-                    updateTurnText(`Select move [🎲 ${remainingDice.join(' & ')}]`);
+                    updateTurnText(`Select move [${remainingDice.join(' & ')}]`);
                 } else {
                     gameState = 'AI_MOVE';
                     this.time.delayedCall(1000, () => {
@@ -587,14 +605,14 @@ class GameScene extends Phaser.Scene {
 
         const executeRoll = (r1: number, r2: number) => {
              isBonusTurn = (r1 === 6 && r2 === 6);
-             if (isBonusTurn) this.sound.play('six_bonus');
+             if (isBonusTurn) playSoundSafe(this, 'six_bonus');
              remainingDice = [r1, r2];
              evaluateMoves();
         };
 
         const rollDice = () => {
             if (gameState !== 'WAIT_ROLL') return;
-            this.sound.play('dice_roll');
+            playSoundSafe(this, 'dice_roll');
             gameState = 'ROLLING';
             updateTurnText(turnOwner === 'YOU' ? 'YOU ARE ROLLING...' : 'AI IS ROLLING...');
             dice1.setVisible(true);
@@ -662,12 +680,13 @@ const config: Phaser.Types.Core.GameConfig = {
     height: 320,
     backgroundColor: '#1E2235',
     scale: {
-        mode: Phaser.Scale.FIT
+        mode: Phaser.Scale.FIT,
+        autoCenter: Phaser.Scale.CENTER_BOTH
     },
     scene: [BootScene, MenuScene, HelpScene, GameScene],
     render: {
-        pixelArt: true,
-        antialias: false
+        pixelArt: false,
+        antialias: true
     }
 };
 
