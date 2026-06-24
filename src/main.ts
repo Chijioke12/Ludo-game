@@ -88,9 +88,11 @@ class BootScene extends Phaser.Scene {
     }
 }
 
-function playSoundSafe(scene: Phaser.Scene, key: string, config?: any) {
-    if (scene.cache.audio.exists(key)) {
+function playSound(scene: Phaser.Scene, key: string, config?: any) {
+    try {
         scene.sound.play(key, config);
+    } catch (e) {
+        console.warn('Sound play failed for', key, e);
     }
 }
 
@@ -143,7 +145,7 @@ class MenuScene extends Phaser.Scene {
         this.focusIndicator.setAlpha(1);
         this.focusIndicator.setPosition(60, item.y);
         
-        playSoundSafe(this, 'button_click', { volume: 0.5 });
+        playSound(this, 'button_click', { volume: 0.5 });
 
         this.menuSprites.forEach((sprite, idx) => {
             if (idx === this.focusIndex) {
@@ -161,7 +163,7 @@ class MenuScene extends Phaser.Scene {
 
     selectItem() {
         const item = this.menuItems[this.focusIndex];
-        playSoundSafe(this, 'button_click');
+        playSound(this, 'button_click');
         if (item.id === 'play') {
             this.scene.start('GameScene');
         } else if (item.id === 'sound') {
@@ -336,7 +338,7 @@ class GameScene extends Phaser.Scene {
         };
 
         updateTurnText('[Enter] to Roll');
-        playSoundSafe(this, 'game_start');
+        playSound(this, 'game_start');
 
         let gameState = 'WAIT_ROLL'; // WAIT_ROLL, ROLLING, WAIT_MOVE, AI_MOVE
 
@@ -382,7 +384,7 @@ class GameScene extends Phaser.Scene {
             } else if (t.state === 'path') {
                 const coords = getCellCoords(t.color, t.relativePos);
                 if (coords) {
-                    playSoundSafe(this, 'token_move', { volume: 0.6 });
+                    playSound(this, 'token_move', { volume: 0.6 });
                     t.sprite.x = coords.x;
                     t.sprite.y = coords.y;
                 }
@@ -484,7 +486,7 @@ class GameScene extends Phaser.Scene {
                             ((STARTS[other.color] + other.relativePos) % 52) === absIndex
                         );
                         if (captured.length > 0) {
-                            playSoundSafe(this, 'token_capture');
+                            playSound(this, 'token_capture');
                             captured.forEach(c => {
                                 c.state = 'home';
                                 c.relativePos = 0;
@@ -495,12 +497,12 @@ class GameScene extends Phaser.Scene {
                     }
                 }
                 if (t.relativePos === 56) {
-                    playSoundSafe(this, 'token_home');
+                    playSound(this, 'token_home');
                     
                     const myTokens = tokens.filter(tok => tok.color === t.color);
                     const allHome = myTokens.every(tok => tok.relativePos === 56);
                     if (allHome) {
-                        playSoundSafe(this, 'game_win');
+                        playSound(this, 'game_win');
                         updateTurnText(`${t.color.toUpperCase()} WINS!`);
                         gameState = 'WIN';
                         // Could add a win animation or scene here
@@ -527,7 +529,7 @@ class GameScene extends Phaser.Scene {
                         duration: 150,
                         ease: 'Linear',
                         onComplete: () => {
-                            playSoundSafe(this, 'token_move', { volume: 0.4 });
+                            playSound(this, 'token_move', { volume: 0.4 });
                             stepIndex++;
                             nextStep();
                         }
@@ -605,14 +607,14 @@ class GameScene extends Phaser.Scene {
 
         const executeRoll = (r1: number, r2: number) => {
              isBonusTurn = (r1 === 6 && r2 === 6);
-             if (isBonusTurn) playSoundSafe(this, 'six_bonus');
+             if (isBonusTurn) playSound(this, 'six_bonus');
              remainingDice = [r1, r2];
              evaluateMoves();
         };
 
         const rollDice = () => {
             if (gameState !== 'WAIT_ROLL') return;
-            playSoundSafe(this, 'dice_roll');
+            playSound(this, 'dice_roll');
             gameState = 'ROLLING';
             updateTurnText(turnOwner === 'YOU' ? 'YOU ARE ROLLING...' : 'AI IS ROLLING...');
             dice1.setVisible(true);
